@@ -1,7 +1,7 @@
 "use client";
 import { Movie } from "@/type";
+import { addToWishlist } from "@/utils/common";
 import React from "react";
-import { addToWishlist } from "../../utils/common";
 
 type Props = {
   movie: Movie;

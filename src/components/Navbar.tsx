@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { getLocalStorageData } from "../../utils/common";
 import Image from "next/image";
+import { getLocalStorageData } from "@/utils/common";
 
 const Navbar = () => {
   const [wishList, setWishList] = useState<any>([]);
