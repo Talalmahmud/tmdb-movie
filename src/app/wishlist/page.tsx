@@ -2,8 +2,10 @@
 import { Movie } from "@/type";
 import React, { useEffect, useState } from "react";
 import { addToWishlist, getLocalStorageData } from "../../utils/common";
-import WishListCard from "@/components/WishListCard";
-
+import dynamic from "next/dynamic";
+const WishListCard = dynamic(() => import("@/components/WishListCard"), {
+  ssr: false, // Optional: Disable server-side rendering for this component
+});
 const Page = () => {
   const [wishList, setWishList] = useState<Movie[]>([]);
   const getLocalData = async () => {

@@ -1,9 +1,8 @@
 "use client";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
-import React from "react";
-import { addToWishlist } from "../../utils/common";
 import { Movie } from "@/type";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 type Props = {
   item: {
@@ -30,7 +29,10 @@ const WishListCard = ({ item, remove }: Props) => {
   const posterSize = "w500"; // Adjust the size as needed
   return (
     <div className=" w-full xl:w-[200px] dark:bg-white bg-slate-300  border-white border-[1px] flex flex-col gap-1 items-center rounded-md">
-      <div className=" relative h-[200px] md:h-[180px]  w-full">
+      <Link
+        href={`/${item?.id}`}
+        className=" relative h-[200px] md:h-[180px]  w-full"
+      >
         <Image
           src={`${imgBaseUrl}${posterSize}${item.poster_path}`}
           fill
@@ -39,7 +41,7 @@ const WishListCard = ({ item, remove }: Props) => {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="rounded-tl-md rounded-tr-md"
         />
-      </div>
+      </Link>
       <p className=" text-[12px] text-black font-semibold px-4 text-center">
         {item?.title?.slice(0, 40)}
       </p>

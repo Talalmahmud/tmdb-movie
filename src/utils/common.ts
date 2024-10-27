@@ -1,7 +1,7 @@
 import { Movie } from "@/type";
 
 export const getLocalStorageData = async () => {
-  let cookidata: Movie[] = await JSON.parse(
+  const cookidata: Movie[] = await JSON.parse(
     localStorage.getItem("wishlist") || "[]"
   );
   return cookidata;

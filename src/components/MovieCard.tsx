@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import React from "react";
 
 type Props = {
@@ -24,7 +23,6 @@ type Props = {
 };
 
 const MovieCard = ({ item }: Props) => {
-  const pathName = usePathname();
   const imgBaseUrl = "https://image.tmdb.org/t/p/";
   const posterSize = "w500"; // Adjust the size as needed
   return (

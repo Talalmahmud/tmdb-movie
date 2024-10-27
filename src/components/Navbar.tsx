@@ -3,9 +3,10 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { getLocalStorageData } from "@/utils/common";
+import { Movie } from "@/type";
 
 const Navbar = () => {
-  const [wishList, setWishList] = useState<any>([]);
+  const [wishList, setWishList] = useState<Movie[]>([]);
   const [dark, setDark] = useState(false);
 
   // Function to handle dark mode toggle
@@ -49,7 +50,7 @@ const Navbar = () => {
   }, [dark]);
 
   return (
-    <div className="w-full border-gray-800 bg-gray-200 dark:bg-slate-800 border-b-[1px]">
+    <div className="w-full border-gray- sticky top-0 left-0 z-50 bg-gray-200 dark:bg-slate-800 border-b-[1px]">
       <div className="w-full md:w-[736px] xl:w-[1100px] mx-auto px-6 xl:px-0 flex justify-between items-center py-6">
         <Link
           href="/"

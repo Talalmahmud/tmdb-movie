@@ -1,9 +1,14 @@
 import Image from "next/image";
 import { Movie } from "@/type";
 import { Person } from "../../type";
-import AddWishList from "@/components/AddWishList";
-import CastCard from "@/components/CastCard";
-import MovieCard from "@/components/MovieCard";
+import dynamic from "next/dynamic";
+const AddWishList = dynamic(() => import("@/components/AddWishList"), {
+  ssr: true,
+});
+const CastCard = dynamic(() => import("@/components/CastCard"), { ssr: true });
+const MovieCard = dynamic(() => import("@/components/MovieCard"), {
+  ssr: true,
+});
 
 const imgBaseUrl = "https://image.tmdb.org/t/p/";
 const posterSize = "w500";
