@@ -2,11 +2,8 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { getLocalStorageData } from "@/utils/common";
-import { Movie } from "@/type";
 
 const Navbar = () => {
-  const [wishList, setWishList] = useState<Movie[]>([]);
   const [dark, setDark] = useState(false);
 
   // Function to handle dark mode toggle
@@ -17,11 +14,6 @@ const Navbar = () => {
   };
 
   // Function to get data from cookies
-  const getLocalData = async () => {
-    const cookidata = await getLocalStorageData();
-    console.log(cookidata);
-    setWishList(cookidata);
-  };
 
   // useEffect to manage dark mode class on body and initial state from localStorage
   useEffect(() => {
@@ -37,7 +29,6 @@ const Navbar = () => {
     }
 
     // Fetch local data on mount
-    getLocalData();
   }, []);
 
   // Update body class on dark mode change
@@ -71,7 +62,7 @@ const Navbar = () => {
             href="/wishlist"
             className="dark:text-white text-orange-600 font-semibold text-[16px]"
           >
-            Wishlist ({wishList.length})
+            Wishlist
           </Link>
         </div>
       </div>

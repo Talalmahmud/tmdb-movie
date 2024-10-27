@@ -2,9 +2,7 @@ import Image from "next/image";
 import { Movie } from "@/type";
 import { Person } from "../../type";
 import dynamic from "next/dynamic";
-const AddWishList = dynamic(() => import("@/components/AddWishList"), {
-  ssr: true,
-});
+const AddWishList = dynamic(() => import("@/components/AddWishList"));
 const CastCard = dynamic(() => import("@/components/CastCard"), { ssr: true });
 const MovieCard = dynamic(() => import("@/components/MovieCard"), {
   ssr: true,
@@ -17,7 +15,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
   let movieDetails;
   let relateMovies;
   let castData;
-  let isWishlist;
+
 
   // Fetch movie details
   try {
@@ -119,9 +117,6 @@ const Page = async ({ params }: { params: { id: string } }) => {
               <div className=" flex flex-col gap-1">
                 <div>
                   <AddWishList
-                    title={
-                      isWishlist ? "Remove From WishList" : "Add to WishList"
-                    }
                     movie={movieDetails}
                   />
                 </div>
